@@ -1,0 +1,137 @@
+{
+  "stage": "C",
+  "state": "IN",
+  "huc8": "04040001",
+  "huc_name": "Little Calumet-Galien",
+  "unit": "pixel",
+  "p_definition": "P(sfha | hydro)",
+  "colorbar": "P(sfha | hydro)",
+  "vector_crs": 4269,
+  "template_crs": 5070,
+  "template_res_m": 30.0,
+  "template_kind": "nlcd_2021",
+  "template_shape": [
+    3008,
+    3298
+  ],
+  "huc_states": "IL,IN,MI",
+  "huc_areasqkm": 1903.21,
+  "wbd_live_areasqkm": 1903.21,
+  "ofr_2008_covers_this_huc": false,
+  "indy_plants_copied": false,
+  "nora_hand_copied": false,
+  "fim_started": false,
+  "industrial_points_started": false,
+  "claim_bans": [
+    "casualty_count",
+    "climate_attribution",
+    "tornado_count",
+    "population_at_risk",
+    "p_as_100yr",
+    "unmapped_risk",
+    "indy_plant_copy"
+  ],
+  "gate": "pass",
+  "template_fingerprint": {
+    "kind": "nlcd_2021",
+    "crs": 5070,
+    "width": 3298,
+    "height": 3008,
+    "transform": [
+      30.0,
+      0.0,
+      692250.0,
+      0.0,
+      -30.0,
+      2162790.0
+    ],
+    "transform_sha256": "81748d4137cb2e161f4e875699d62a5b594a4141b5b6dc73eacd2af136d7e808",
+    "raster_sha256": "0b0a0ce13c4ec43fbbfae394616b4845d9ac004846a0f1e50797cb5bf011f5f3"
+  },
+  "features": [
+    "slope",
+    "twi",
+    "hand",
+    "dist_flowline",
+    "dist_waterbody",
+    "nlcd_impervious"
+  ],
+  "model": "hist_gradient_boosting",
+  "model_max_depth": 3,
+  "model_max_iter": 160,
+  "model_learning_rate": 0.05,
+  "upper_white_booster_copied": false,
+  "hsg_in_model": false,
+  "hand_nodata_rule": "exclude_from_sample",
+  "n_hand_nodata_excluded": 16313,
+  "n_sfha_eligible": 167729,
+  "n_oof": 2098238,
+  "n_train_pos_sampled": 838428,
+  "n_train_neg_sampled": 2515284,
+  "non_sfha_ratio": 3.0,
+  "n_huc10": 6,
+  "huc10_codes": [
+    "0404000103",
+    "0404000104",
+    "0404000105",
+    "0404000101",
+    "0404000102",
+    "0404000106"
+  ],
+  "n_halo_train_excluded": 12995,
+  "cv": "leave_one_huc10_out",
+  "halo_pixels": 1,
+  "pr_auc": 0.27401050398297894,
+  "pr_auc_baseline": 0.07992277329835795,
+  "brier": 0.17213913798332214,
+  "brier_baseline": 0.07353512375931738,
+  "sfha_rate_eligible": 0.07993512887013098,
+  "hand_negated_pr_auc": 0.21952003193514222,
+  "model_minus_hand_pr_auc": 0.05449047204783672,
+  "filename": "p_sfha.tif",
+  "p_sfha_path": "/Users/samw/calumet_flood_completion/data/interim/p_sfha.tif",
+  "p_sfha_calibrated_path": "/Users/samw/calumet_flood_completion/data/interim/p_sfha_calibrated.tif",
+  "filename_calibrated": "p_sfha_calibrated.tif",
+  "raw_raster_kept": true,
+  "method_calibrated": "isotonic_oof_pooled",
+  "nested_isotonic_pr_auc": 0.22849109096658207,
+  "nested_isotonic_pr_auc_shift": 0.045519413016396865,
+  "n_scored_calibrated": 2098238,
+  "oof_mean_p_raw": 0.342945644196431,
+  "oof_mean_p_calibrated": 0.07992277314723109,
+  "pr_auc_calibrated": 0.2694089086258535,
+  "brier_calibrated": 0.06422426880820203,
+  "probabilities_calibrated": true,
+  "folds": [
+    {
+      "huc10": "0404000103",
+      "n_test": 220730,
+      "n_train_sampled": 625420
+    },
+    {
+      "huc10": "0404000104",
+      "n_test": 215748,
+      "n_train_sampled": 596640
+    },
+    {
+      "huc10": "0404000105",
+      "n_test": 562180,
+      "n_train_sampled": 428828
+    },
+    {
+      "huc10": "0404000101",
+      "n_test": 306966,
+      "n_train_sampled": 605776
+    },
+    {
+      "huc10": "0404000102",
+      "n_test": 493891,
+      "n_train_sampled": 566580
+    },
+    {
+      "huc10": "0404000106",
+      "n_test": 298723,
+      "n_train_sampled": 530468
+    }
+  ]
+}

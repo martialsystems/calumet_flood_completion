@@ -30,16 +30,22 @@ Slope in radians with floor 0.001 rad so TWI stays finite. Burn streams 50 m, pr
 
 Undefined HAND stays nodata. It is not filled with zero. Nora HAND is not warped onto this grid.
 
-## Later stages
+## What Stage C is
 
-C: HUC-10 leave-one-out for `P(sfha | hydro)`. New weights on this HUC.
+Label: FEMA SFHA band on this template. Floodway cells are already `sfha==1`. Eligible cells have defined HAND; the 16,313 HAND nodata cells stay out of the sample and stay nodata in P.
 
-TRI overlay optional and local to 04040001. Do not copy the five Indy plant names. OFR 2008-1322 is an Upper White reach product: if no Calumet high-water mask fetches, log miss.
+Blocks: WBD HUC-10 polygons inside 04040001. Leave-one-HUC-10-out. Train drops a 1-pixel halo around the held-out unit.
 
-Two figures max after C. No Folium required in v1.
+Model: `HistGradientBoostingClassifier` fit on this HUC (max_depth 3, max_iter 160, learning_rate 0.05). Upper White XGB hyperparameters are not used.
+
+Scores: PR-AUC vs SFHA prevalence (must beat) and vs negated HAND (logged). Isotonic writes `p_sfha_calibrated.tif` and leaves `p_sfha.tif` unchanged. Nested leave-one-HUC-10 isotonic is used when it moves PR-AUC by at most 0.02; otherwise a single increasing map is fit on the OOF scores so rank is preserved. Sampling P before that calibrated raster is refused.
+
+TRI overlay optional and local to 04040001. OFR 2008-1322 is an Upper White reach product: if no Calumet high-water mask fetches, log miss.
+
+Two figures max after C.
 
 ## Claims
 
-Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; D8 HAND and distances on this template; `P(sfha | hydro)` as map-completion (once C exists).
+Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; D8 HAND and distances on this template; `P(sfha | hydro)` as map-completion after isotonic.
 
 Scanner ids in `calumetmap.claims` stay in force: casualty_count, climate_attribution, tornado_count, population_at_risk, p_as_100yr, unmapped_risk, indy_plant_copy. OFR 2008-1322 is an Upper White reach product.

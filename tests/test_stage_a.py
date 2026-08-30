@@ -129,9 +129,8 @@ def test_load_huc_requires_indiana_when_states_present(tmp_path: Path) -> None:
         load_huc(bad)
 
 
-def test_src_has_no_upper_white_hand_or_p_weights() -> None:
+def test_src_has_no_upper_white_booster() -> None:
     src = Path(__file__).resolve().parents[1] / "src" / "calumetmap"
-    names = {p.name for p in src.glob("*.py")}
-    assert "calibrate.py" not in names
     blob = "\n".join(p.read_text(encoding="utf-8") for p in src.glob("*.py"))
-    assert "p_sfha_calibrated" not in blob
+    assert "XGBClassifier" not in blob
+    assert "n_estimators=200" not in blob

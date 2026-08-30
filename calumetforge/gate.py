@@ -39,6 +39,8 @@ def require_stage(**flags: Any) -> None:
         "firm_unshaded_x_ok": False,
         "stage_a_report": False,
         "stage_b_report": False,
+        "probabilities_calibrated": False,
+        "sample_p": False,
     }
     state.update(flags)
     require_law(

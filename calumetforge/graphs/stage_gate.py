@@ -40,6 +40,8 @@ def _evaluate(state: dict[str, Any]) -> dict[str, Any]:
             v.append("stage_c_without_a")
         if not bool(state.get("stage_b_report")):
             v.append("stage_c_without_b")
+    if bool(state.get("sample_p")) and not bool(state.get("probabilities_calibrated")):
+        v.append("sample_p_before_isotonic")
     return {"violations": v, "events": [{"node": "evaluate", "ok": not v}]}
 
 
@@ -54,5 +56,7 @@ def build_graph():
             "firm_unshaded_x_ok",
             "stage_a_report",
             "stage_b_report",
+            "probabilities_calibrated",
+            "sample_p",
         ],
     )

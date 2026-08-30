@@ -18,7 +18,11 @@ Live NLCD 2021 template (refuses the 32x32 fixture). NFHL `S_FLD_HAZ_AR` on laye
 
 ## Stage B
 
-3DEP on the Stage A template. NHD flowlines keep ftype 460 and 558. Slope floor, burn, fill, D8, TWI, HAND along flow, distance to flowline and waterbody. Fixture template refused. Nora HAND is not an input. FIM-or-stop waits on a wet mask or a P raster. Industrial points wait on P.
+3DEP on the Stage A template. NHD flowlines keep ftype 460 and 558. Slope floor, burn, fill, D8, TWI, HAND along flow, distance to flowline and waterbody. Fixture template refused. Nora HAND is not an input.
+
+## Stage C
+
+New train on the Stage B bands. Label is the SFHA band (floodway is already in `sfha==1`). Leave-one-HUC-10-out with a 1-pixel halo. PR-AUC vs prevalence and vs negated HAND. HistGradientBoosting on this HUC, not the Upper White XGB booster. Isotonic writes `p_sfha_calibrated.tif` and keeps `p_sfha.tif` (pooled OOF map if nested HUC-10 isotonic moves PR-AUC more than 0.02). HAND nodata stays nodata. Sampling P before that calibrated raster is refused. FIM-or-stop waits on a wet mask or this calibrated P. Industrial points wait on calibrated P.
 
 ```bash
 python3.12 -m venv .venv
@@ -29,6 +33,7 @@ PYTHONPATH=src:. python3 scripts/run_stage0.py --huc tests/fixtures/huc.geojson 
 PYTHONPATH=src:. python3 scripts/fetch_wbd.py data/raw
 PYTHONPATH=src:. python3 scripts/run_stage_a.py --huc data/raw/huc04040001.geojson --out logs/stage_a
 PYTHONPATH=src:. python3 scripts/run_stage_b.py --huc data/raw/huc04040001.geojson --out logs/stage_b
+PYTHONPATH=src:. python3 scripts/run_stage_c.py --huc data/raw/huc04040001.geojson --out logs/stage_c
 ```
 
 Do not use stock `/usr/bin/python3 -m pytest`. Empty WBD features stop (`fetch_wbd.py` exit 2). Stage A and B stop if the template looks like the fixture grid.
@@ -38,7 +43,7 @@ Do not use stock `/usr/bin/python3 -m pytest`. Empty WBD features stop (`fetch_w
 | [METHODOLOGY.md](METHODOLOGY.md) | Locked contract |
 | [AGENTS.md](AGENTS.md) | Agent rules |
 | [CHECKLIST.md](CHECKLIST.md) | Operator list |
-| `src/calumetmap/` | HUC load, NLCD template, NFHL zone_class, D8 HAND, Stage 0/A/B reports |
+| `src/calumetmap/` | HUC load, NLCD, NFHL, D8 HAND, HUC-10 CV, isotonic P |
 | `calumetforge/` | GraphForge pin |
 
 MIT. Martial Systems LLC.

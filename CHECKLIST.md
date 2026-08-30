@@ -8,8 +8,8 @@
 6. Refuse Upper White `05120201`.
 7. No Indy plant names in README or reports.
 8. OFR 2008 is not a Calumet mask.
-9. GraphForge `calumetforge/` green. Stage A and B require `nlcd_2021`. Stage B requires Stage A.
+9. GraphForge `calumetforge/` green. Stage A/B/C require `nlcd_2021`. Stage B requires Stage A. Sampling P requires isotonic.
 10. Index Maps row for Calumet. Upper White gist title stays Upper White.
-11. FIM-or-stop waits on a wet mask or P. Industrial points wait on P.
-12. Train is Stage C. Do not copy Upper White `p_sfha` weights.
+11. FIM-or-stop waits on a wet mask or calibrated P. Industrial points wait on calibrated P.
+12. Stage C is a new train. Do not copy Upper White boosters or `p_sfha` weights.
 13. Research index: https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3

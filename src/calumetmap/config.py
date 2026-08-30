@@ -24,7 +24,7 @@ FIXTURE_NORTH = 2_170_000.0
 FIXTURE_ROWS = 32
 FIXTURE_COLS = 32
 
-USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageB)"
+USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageC)"
 WBD_LAYER_URL = "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4"
 WBD_MAX_ALLOWABLE_OFFSET_DEG = 0.0001
 WBD_GEOMETRY_PRECISION = 6
@@ -116,3 +116,29 @@ NORA_HAND_MARKERS = (
     "white_river_stage_inundation",
     "nora_live",
 )
+
+WBD_HUC10_LAYER_URL = (
+    "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/5"
+)
+STAGE_C_FEATURES = (
+    "slope",
+    "twi",
+    "hand",
+    "dist_flowline",
+    "dist_waterbody",
+    "nlcd_impervious",
+)
+# New train for 04040001. Not Upper White XGB 200/4/0.08.
+C_HGB_MAX_DEPTH = 3
+C_HGB_MAX_ITER = 160
+C_HGB_LEARNING_RATE = 0.05
+C_HGB_MIN_SAMPLES_LEAF = 50
+C_HGB_L2 = 1.0
+C_HGB_MAX_BINS = 128
+C_NON_SFHA_RATIO = 3.0
+C_NEAR_STREAM_M = 300.0
+C_RANDOM_SEED = 20260830
+P_SFHA_NODATA = -1.0
+P_SFHA_CALIBRATED_NAME = "p_sfha_calibrated.tif"
+P_SFHA_RAW_NAME = "p_sfha.tif"
+CAL_PR_AUC_MAX_SHIFT = 0.02
