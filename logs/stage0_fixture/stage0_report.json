@@ -1,0 +1,34 @@
+{
+  "stage": "0",
+  "state": "IN",
+  "huc8": "04040001",
+  "huc_name": "Little Calumet-Galien",
+  "unit": "pixel",
+  "p_definition": "P(sfha | hydro)",
+  "vector_crs": 4269,
+  "template_crs": 5070,
+  "template_res_m": 30.0,
+  "template_kind": "fixture",
+  "template_shape": [
+    32,
+    32
+  ],
+  "huc_source": "huc.geojson",
+  "template_source": "template.tif",
+  "n_huc_features": 1,
+  "huc_states": "",
+  "huc_areasqkm": null,
+  "ofr_2008_covers_this_huc": false,
+  "indy_plants_copied": false,
+  "claim_bans": [
+    "casualty_count",
+    "climate_attribution",
+    "tornado_count",
+    "population_at_risk",
+    "p_as_100yr",
+    "unmapped_risk",
+    "indy_plant_copy"
+  ],
+  "gate": "pass",
+  "template_sha256": "275d9f8b56c74fe2c8356db61b405ca9ca7ff729a303f5d7ab840c2d8d087251"
+}

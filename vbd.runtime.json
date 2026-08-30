@@ -1,0 +1,29 @@
+{
+  "runtime_checks": [
+    {
+      "id": "unit-tests",
+      "argv": [".venv/bin/python", "-m", "pytest", "tests/", "-q"],
+      "timeout_s": 180,
+      "paths": ["src/**", "tests/**", "scripts/**", "calumetforge/**", "requirements.txt", "vbd.runtime.json"]
+    },
+    {
+      "id": "fixture-path",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_stage0.py",
+        "--huc",
+        "tests/fixtures/huc.geojson",
+        "--out",
+        "logs/stage0_fixture"
+      ],
+      "timeout_s": 120,
+      "paths": ["src/**", "scripts/**", "tests/**"]
+    },
+    {
+      "id": "calumetforge-sanity",
+      "argv": [".venv/bin/python", "calumetforge/scripts/sanity_calumetforge.py"],
+      "timeout_s": 60,
+      "paths": ["calumetforge/**", "tests/test_calumetforge_laws.py"]
+    }
+  ]
+}
