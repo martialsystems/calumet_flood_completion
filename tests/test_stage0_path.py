@@ -4,7 +4,14 @@ from pathlib import Path
 
 import pytest
 
-from calumetmap.config import HUC8, PARENT_HUC8, TEMPLATE_CRS, TEMPLATE_KIND_NLCD, TEMPLATE_RES_M
+from calumetmap.config import (
+    HUC8,
+    PARENT_HUC8,
+    TEMPLATE_CRS,
+    TEMPLATE_KIND_NLCD,
+    TEMPLATE_RES_M,
+    WBD_LIVE_AREASQKM,
+)
 from calumetmap.errors import EmptyHucError, GateError
 from calumetmap.huc import load_huc
 from calumetmap.stage0 import run_stage0
@@ -25,6 +32,9 @@ def test_stage0_fixture_writes_report(tmp_path: Path) -> None:
     assert report["template_kind"] == "fixture"
     assert report["ofr_2008_covers_this_huc"] is False
     assert report["indy_plants_copied"] is False
+    assert report["wbd_live_areasqkm"] == WBD_LIVE_AREASQKM
+    assert report["huc_states"] == "IL,IN,MI"
+    assert report["huc_areasqkm"] == WBD_LIVE_AREASQKM
     assert (out / "stage0_report.json").is_file()
     assert (out / "template.tif").is_file()
 

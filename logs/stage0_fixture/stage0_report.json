@@ -16,8 +16,9 @@
   "huc_source": "huc.geojson",
   "template_source": "template.tif",
   "n_huc_features": 1,
-  "huc_states": "",
-  "huc_areasqkm": null,
+  "huc_states": "IL,IN,MI",
+  "huc_areasqkm": 1903.21,
+  "wbd_live_areasqkm": 1903.21,
   "ofr_2008_covers_this_huc": false,
   "indy_plants_copied": false,
   "claim_bans": [

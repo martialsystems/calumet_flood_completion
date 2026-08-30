@@ -24,6 +24,12 @@ def test_laws() -> None:
     with pytest.raises(LawBlockedError):
         require_huc(huc8="04040001", parent_huc=True, thread_id="t.h.parent")
     require_stage(current_stage="0", target_stage="0", template_kind="fixture", thread_id="t.s.ok")
+    require_stage(
+        current_stage="0",
+        target_stage="A",
+        template_kind="nlcd_2021",
+        thread_id="t.s.a",
+    )
     with pytest.raises(LawBlockedError):
         require_stage(current_stage="0", target_stage="C", thread_id="t.s.skip")
     with pytest.raises(LawBlockedError):

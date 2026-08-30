@@ -1,0 +1,136 @@
+{
+  "stage": "A",
+  "state": "IN",
+  "huc8": "04040001",
+  "huc_name": "Little Calumet-Galien",
+  "unit": "pixel",
+  "p_definition": "P(sfha | hydro)",
+  "vector_crs": 4269,
+  "template_crs": 5070,
+  "template_res_m": 30.0,
+  "template_kind": "nlcd_2021",
+  "template_shape": [
+    3008,
+    3298
+  ],
+  "n_huc_features": 1,
+  "huc_states": "IL,IN,MI",
+  "huc_areasqkm": 1903.21,
+  "wbd_live_areasqkm": 1903.21,
+  "firm": {
+    "sfha_counts": {
+      "0": 1946675,
+      "1": 167952
+    },
+    "zone_class_counts": {
+      "unmapped": 1440,
+      "sfha": 132638,
+      "floodway": 35314,
+      "shaded_x": 13311,
+      "unshaded_x": 1931924
+    },
+    "sfha_has_0_and_1": true,
+    "from_existing_rasters": true,
+    "firm_source": "fema_nfhl_mapserver_28",
+    "firm_where": "1=1",
+    "gate_samples": [
+      {
+        "name": "gary_downtown",
+        "lon": -87.337,
+        "lat": 41.5934,
+        "row": 2157,
+        "col": 785,
+        "zone_class": "unshaded_x",
+        "expected": "unshaded_x"
+      },
+      {
+        "name": "gary_little_calumet",
+        "lon": -87.337,
+        "lat": 41.563,
+        "row": 2270,
+        "col": 796,
+        "zone_class": "sfha",
+        "expected": "sfha"
+      },
+      {
+        "name": "crown_point_tillplain",
+        "lon": -87.3653,
+        "lat": 41.4169,
+        "row": 2820,
+        "col": 767,
+        "zone_class": "unshaded_x",
+        "expected": "unshaded_x"
+      }
+    ],
+    "firm_unshaded_x_ok": true
+  },
+  "firm_source": "fema_nfhl_mapserver_28",
+  "firm_where": "1=1",
+  "firm_unshaded_x_ok": true,
+  "gate_samples": [
+    {
+      "name": "gary_downtown",
+      "lon": -87.337,
+      "lat": 41.5934,
+      "row": 2157,
+      "col": 785,
+      "zone_class": "unshaded_x",
+      "expected": "unshaded_x"
+    },
+    {
+      "name": "gary_little_calumet",
+      "lon": -87.337,
+      "lat": 41.563,
+      "row": 2270,
+      "col": 796,
+      "zone_class": "sfha",
+      "expected": "sfha"
+    },
+    {
+      "name": "crown_point_tillplain",
+      "lon": -87.3653,
+      "lat": 41.4169,
+      "row": 2820,
+      "col": 767,
+      "zone_class": "unshaded_x",
+      "expected": "unshaded_x"
+    }
+  ],
+  "zone_class_counts": {
+    "unmapped": 1440,
+    "sfha": 132638,
+    "floodway": 35314,
+    "shaded_x": 13311,
+    "unshaded_x": 1931924
+  },
+  "ofr_2008_covers_this_huc": false,
+  "indy_plants_copied": false,
+  "claim_bans": [
+    "casualty_count",
+    "climate_attribution",
+    "tornado_count",
+    "population_at_risk",
+    "p_as_100yr",
+    "unmapped_risk",
+    "indy_plant_copy"
+  ],
+  "gate": "pass",
+  "template_fingerprint": {
+    "kind": "nlcd_2021",
+    "crs": 5070,
+    "width": 3298,
+    "height": 3008,
+    "transform": [
+      30.0,
+      0.0,
+      692250.0,
+      0.0,
+      -30.0,
+      2162790.0
+    ],
+    "transform_sha256": "81748d4137cb2e161f4e875699d62a5b594a4141b5b6dc73eacd2af136d7e808",
+    "raster_sha256": "0b0a0ce13c4ec43fbbfae394616b4845d9ac004846a0f1e50797cb5bf011f5f3"
+  },
+  "template_source": "nlcd_impervious_2021_04040001.tif",
+  "huc_source": "huc04040001.geojson"
+}

@@ -8,7 +8,7 @@ HUC-8 **04040001** Little Calumet-Galien. Deep River-Portage is HUC-12s inside t
 
 Vector: EPSG:4269 until a logged warp. Rasters: EPSG:5070, 30 m. Missing CRS: refuse.
 
-Live HUC: USGS WBD MapServer layer 4, `huc8='04040001'`. Area, when present, must fall in 1200 to 2500 km².
+Live HUC: USGS WBD MapServer layer 4, `huc8='04040001'`. Pinned live area: 1903.21 km². Incoming `areasqkm`, when present, must fall in 1200 to 2500 km². States must include IN; IL and MI may appear.
 
 ## What Stage 0 is
 
@@ -16,13 +16,17 @@ HUC polygon plus a 30 m 5070 template. Fixture template is a 32x32 CI grid. Live
 
 `P(sfha | hydro)` is not produced at Stage 0.
 
-## Later stages (not this commit)
+## What Stage A is
 
-A: new NFHL `S_FLD_HAZ_AR` extract, `where=1=1`, `sfha` and `zone_class` codebook. Gate samples: Gary downtown, Indiana Dunes, Crown Point till-plain. Not Monument Circle.
+Live NLCD 2021 impervious WMS mosaic, clipped to 04040001, 30 m EPSG:5070. NFHL MapServer layer 28, `where=1=1`, rasterized to `sfha` (0/1) and `zone_class` (unmapped, sfha, floodway, shaded_x, unshaded_x, D, other). Empty `ZONE_SUBTY` on FLD_ZONE X is unshaded X, not unmapped.
 
-B: HAND along D8, not Euclidean nearest stream.
+Gate samples in this basin: Gary downtown unshaded X; Gary Little Calumet at Grant Street SFHA; Crown Point till-plain unshaded X.
 
-C: HUC-10 leave-one-out for `P(sfha | hydro)`.
+## Later stages
+
+B: HAND along D8 on this HUC. New train. Do not copy Upper White HAND.
+
+C: HUC-10 leave-one-out for `P(sfha | hydro)`. New weights. Do not copy Upper White `p_sfha` weights.
 
 TRI overlay optional and local to 04040001. Do not copy the five Indy plant names. OFR 2008-1322 is an Upper White reach product: if no Calumet high-water mask fetches, log miss.
 
@@ -30,6 +34,6 @@ Two figures max after C. No Folium required in v1.
 
 ## Claims
 
-Allowed: HUC 04040001; 30 m template; `P(sfha | hydro)` as map-completion (once C exists).
+Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; `P(sfha | hydro)` as map-completion (once C exists).
 
-Banned: treating P as a 1-percent annual-chance number; unmapped risk; casualty language; Indy plant names; OFR 2008 as a Calumet inundation mask.
+Scanner ids in `calumetmap.claims` stay in force: casualty_count, climate_attribution, tornado_count, population_at_risk, p_as_100yr, unmapped_risk, indy_plant_copy. OFR 2008-1322 is an Upper White reach product.
