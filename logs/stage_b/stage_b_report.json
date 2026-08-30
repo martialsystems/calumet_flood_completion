@@ -1,0 +1,113 @@
+{
+  "stage": "B",
+  "state": "IN",
+  "huc8": "04040001",
+  "huc_name": "Little Calumet-Galien",
+  "unit": "pixel",
+  "p_definition": "P(sfha | hydro)",
+  "vector_crs": 4269,
+  "template_crs": 5070,
+  "template_res_m": 30.0,
+  "template_kind": "nlcd_2021",
+  "template_shape": [
+    3008,
+    3298
+  ],
+  "huc_states": "IL,IN,MI",
+  "huc_areasqkm": 1903.21,
+  "wbd_live_areasqkm": 1903.21,
+  "ofr_2008_covers_this_huc": false,
+  "indy_plants_copied": false,
+  "nora_hand_copied": false,
+  "stage_c_started": false,
+  "claim_bans": [
+    "casualty_count",
+    "climate_attribution",
+    "tornado_count",
+    "population_at_risk",
+    "p_as_100yr",
+    "unmapped_risk",
+    "indy_plant_copy"
+  ],
+  "gate": "pass",
+  "template_fingerprint": {
+    "kind": "nlcd_2021",
+    "crs": 5070,
+    "width": 3298,
+    "height": 3008,
+    "transform": [
+      30.0,
+      0.0,
+      692250.0,
+      0.0,
+      -30.0,
+      2162790.0
+    ],
+    "transform_sha256": "81748d4137cb2e161f4e875699d62a5b594a4141b5b6dc73eacd2af136d7e808",
+    "raster_sha256": "0b0a0ce13c4ec43fbbfae394616b4845d9ac004846a0f1e50797cb5bf011f5f3"
+  },
+  "firm_unshaded_x_ok": true,
+  "n_interior": 2114627,
+  "n_dem_valid": 2114627,
+  "n_slope_floor": 47903,
+  "slope_floor_rad": 0.001,
+  "n_stream_cells": 258408,
+  "n_flowline_cells": 159647,
+  "n_waterbody_cells": 124883,
+  "n_hand_undefined": 16313,
+  "hand_nodata_rule": "exclude_from_sample",
+  "hand_nodata_filled_with_zero": false,
+  "twi_finite_on_dem_valid": true,
+  "hand_is_flow_path": true,
+  "hydro_burn_m": 50.0,
+  "n_flowline_features": 23635,
+  "n_waterbody_features": 5366,
+  "n_area_460_features": 27,
+  "flowline_ftype_counts": {
+    "558": 8129,
+    "460": 15506
+  },
+  "dem": {
+    "n_tiles": 4,
+    "dem_min": 172.69329833984375,
+    "dem_max": 289.4161071777344,
+    "path": "/Users/samw/calumet_flood_completion/data/interim/dem.tif"
+  },
+  "bands": [
+    {
+      "name": "slope",
+      "path": "/Users/samw/calumet_flood_completion/data/interim/slope.tif",
+      "nodata": -9999.0,
+      "units": "rad",
+      "dtype": "float32"
+    },
+    {
+      "name": "twi",
+      "path": "/Users/samw/calumet_flood_completion/data/interim/twi.tif",
+      "nodata": -9999.0,
+      "units": "ln(m)",
+      "dtype": "float32"
+    },
+    {
+      "name": "hand",
+      "path": "/Users/samw/calumet_flood_completion/data/interim/hand.tif",
+      "nodata": -9999.0,
+      "units": "m",
+      "dtype": "float32"
+    },
+    {
+      "name": "dist_flowline",
+      "path": "/Users/samw/calumet_flood_completion/data/interim/dist_flowline.tif",
+      "nodata": -1.0,
+      "units": "m",
+      "dtype": "float32"
+    },
+    {
+      "name": "dist_waterbody",
+      "path": "/Users/samw/calumet_flood_completion/data/interim/dist_waterbody.tif",
+      "nodata": -1.0,
+      "units": "m",
+      "dtype": "float32"
+    }
+  ]
+}

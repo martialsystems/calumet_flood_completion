@@ -24,7 +24,7 @@ FIXTURE_NORTH = 2_170_000.0
 FIXTURE_ROWS = 32
 FIXTURE_COLS = 32
 
-USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageA)"
+USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageB)"
 WBD_LAYER_URL = "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4"
 WBD_MAX_ALLOWABLE_OFFSET_DEG = 0.0001
 WBD_GEOMETRY_PRECISION = 6
@@ -71,3 +71,48 @@ MAPS_GIST = "https://gist.github.com/martialsystems/16584e78d079666f7e8994b4cc61
 UPPER_WHITE = "https://github.com/martialsystems/indiana_flood_completion"
 P_DEFINITION = "P(sfha | hydro)"
 REPO_ROOT = Path(__file__).resolve().parents[2]
+
+DEM_IMAGE_URL = (
+    "https://elevation.nationalmap.gov/arcgis/rest/services/"
+    "3DEPElevation/ImageServer/exportImage"
+)
+DEM_NODATA = -9999.0
+DEM_TILE_PX = 2000
+
+NHD_FLOWLINE_URL = (
+    "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6"
+)
+NHD_AREA_URL = (
+    "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9"
+)
+NHD_WATERBODY_URL = (
+    "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+)
+NHD_PAGE_SIZE = 2000
+# StreamRiver plus Artificial Path through waterbodies (Little Calumet / Grand Calumet).
+NHD_FLOWLINE_WHERE = "ftype IN (460,558)"
+NHD_AREA_WHERE = "ftype=460"
+
+DIST_NODATA = -1.0
+HYDRO_NODATA = -9999.0
+SLOPE_FLOOR_RAD = 0.001
+HYDRO_BURN_M = 50.0
+HYDRO_FILL_EPSILON_M = 1e-3
+# Live NLCD 2021 template transform from Stage A @fc90f4d.
+LOCKED_TRANSFORM_SHA256 = (
+    "81748d4137cb2e161f4e875699d62a5b594a4141b5b6dc73eacd2af136d7e808"
+)
+STAGE_B_BANDS = (
+    "slope",
+    "twi",
+    "hand",
+    "dist_flowline",
+    "dist_waterbody",
+)
+HAND_NODATA_RULE = "exclude_from_sample"
+NORA_HAND_MARKERS = (
+    "03351000",
+    "NORI3",
+    "white_river_stage_inundation",
+    "nora_live",
+)

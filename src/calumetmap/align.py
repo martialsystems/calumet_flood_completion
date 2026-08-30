@@ -57,6 +57,15 @@ def template_fingerprint(template: TemplateGrid) -> dict:
     }
 
 
+def template_bounds(template: TemplateGrid) -> tuple[float, float, float, float]:
+    t = template.transform
+    west = float(t.c)
+    north = float(t.f)
+    east = west + template.width * float(t.a)
+    south = north + template.height * float(t.e)
+    return west, south, east, north
+
+
 def interior_mask(template: TemplateGrid) -> np.ndarray:
     require_live_template(template)
     with rasterio.open(template.path) as src:

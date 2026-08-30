@@ -22,11 +22,17 @@ Live NLCD 2021 impervious WMS mosaic, clipped to 04040001, 30 m EPSG:5070. NFHL 
 
 Gate samples in this basin: Gary downtown unshaded X; Gary Little Calumet at Grant Street SFHA; Crown Point till-plain unshaded X.
 
+## What Stage B is
+
+3DEP elevation on the Stage A NLCD 2021 template. NHD flowlines: ftype 460 StreamRiver and 558 Artificial Path (named rivers through lakes). Waterbodies and StreamRiver area polygons join the burn mask.
+
+Slope in radians with floor 0.001 rad so TWI stays finite. Burn streams 50 m, priority-flood fill, D8, accumulation, TWI. HAND is height along the D8 path to the drained stream cell, using the unburned DEM. Distances to flowline and waterbody are Euclidean.
+
+Undefined HAND stays nodata. It is not filled with zero. Nora HAND is not warped onto this grid.
+
 ## Later stages
 
-B: HAND along D8 on this HUC. New train. Do not copy Upper White HAND.
-
-C: HUC-10 leave-one-out for `P(sfha | hydro)`. New weights. Do not copy Upper White `p_sfha` weights.
+C: HUC-10 leave-one-out for `P(sfha | hydro)`. New weights on this HUC.
 
 TRI overlay optional and local to 04040001. Do not copy the five Indy plant names. OFR 2008-1322 is an Upper White reach product: if no Calumet high-water mask fetches, log miss.
 
@@ -34,6 +40,6 @@ Two figures max after C. No Folium required in v1.
 
 ## Claims
 
-Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; `P(sfha | hydro)` as map-completion (once C exists).
+Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; D8 HAND and distances on this template; `P(sfha | hydro)` as map-completion (once C exists).
 
 Scanner ids in `calumetmap.claims` stay in force: casualty_count, climate_attribution, tornado_count, population_at_risk, p_as_100yr, unmapped_risk, indy_plant_copy. OFR 2008-1322 is an Upper White reach product.

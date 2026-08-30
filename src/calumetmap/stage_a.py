@@ -8,6 +8,7 @@ from typing import Any
 
 from calumetmap.align import require_live_template, template_fingerprint
 from calumetmap.config import TEMPLATE_KIND_NLCD
+from calumetmap.errors import GateError
 from calumetmap.firm import (
     fetch_firm_pages,
     rasterize_firm,

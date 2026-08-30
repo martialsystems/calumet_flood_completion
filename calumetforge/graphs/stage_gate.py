@@ -30,8 +30,11 @@ def _evaluate(state: dict[str, Any]) -> dict[str, Any]:
     kind = str(state.get("template_kind") or "")
     if tr >= _rank("A") and kind != "nlcd_2021":
         v.append("advance_on_fixture_template")
-    if tr >= _rank("B") and not bool(state.get("firm_unshaded_x_ok")):
-        v.append("advance_without_firm_unshaded_x")
+    if tr >= _rank("B"):
+        if not bool(state.get("firm_unshaded_x_ok")):
+            v.append("advance_without_firm_unshaded_x")
+        if not bool(state.get("stage_a_report")):
+            v.append("advance_without_stage_a")
     if tr >= _rank("C"):
         if not bool(state.get("stage_a_report")):
             v.append("stage_c_without_a")

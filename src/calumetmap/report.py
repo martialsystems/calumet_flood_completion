@@ -77,7 +77,12 @@ def build_stage0_report(
 def write_report(out_dir: Path, report: dict[str, Any]) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     stage = str(report.get("stage") or "0").lower()
-    name = "stage_a_report.json" if stage == "a" else "stage0_report.json"
+    names = {
+        "0": "stage0_report.json",
+        "a": "stage_a_report.json",
+        "b": "stage_b_report.json",
+    }
+    name = names.get(stage, "stage0_report.json")
     path = out_dir / name
     path.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
     return path
@@ -134,6 +139,55 @@ def build_stage_a_report(
     if extra:
         report.update(extra)
     require_clean(json.dumps(report, default=str), source="stage_a_report")
+    hits = scan_obj(report)
+    if hits:
+        raise GateError("report claim scan {0}".format(hits))
+    return report
+
+
+def build_stage_b_report(
+    huc: HucLayer,
+    template: TemplateGrid,
+    *,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if huc.huc8 != HUC8:
+        raise GateError("HUC {0!r} != {1!r}".format(huc.huc8, HUC8))
+    if template.kind != "nlcd_2021":
+        raise GateError("Stage B template_kind must be nlcd_2021")
+    report: dict[str, Any] = {
+        "stage": "B",
+        "state": STATE_CODE,
+        "huc8": HUC8,
+        "huc_name": huc.name or HUC_NAME,
+        "unit": "pixel",
+        "p_definition": P_DEFINITION,
+        "vector_crs": huc.crs,
+        "template_crs": template.crs,
+        "template_res_m": TEMPLATE_RES_M,
+        "template_kind": template.kind,
+        "template_shape": [template.height, template.width],
+        "huc_states": huc.states,
+        "huc_areasqkm": huc.areasqkm,
+        "wbd_live_areasqkm": WBD_LIVE_AREASQKM,
+        "ofr_2008_covers_this_huc": False,
+        "indy_plants_copied": False,
+        "nora_hand_copied": False,
+        "stage_c_started": False,
+        "claim_bans": [
+            "casualty_count",
+            "climate_attribution",
+            "tornado_count",
+            "population_at_risk",
+            "p_as_100yr",
+            "unmapped_risk",
+            "indy_plant_copy",
+        ],
+        "gate": "pass",
+    }
+    if extra:
+        report.update(extra)
+    require_clean(json.dumps(report, default=str), source="stage_b_report")
     hits = scan_obj(report)
     if hits:
         raise GateError("report claim scan {0}".format(hits))

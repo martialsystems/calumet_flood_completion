@@ -30,6 +30,22 @@ def test_laws() -> None:
         template_kind="nlcd_2021",
         thread_id="t.s.a",
     )
+    require_stage(
+        current_stage="A",
+        target_stage="B",
+        template_kind="nlcd_2021",
+        firm_unshaded_x_ok=True,
+        stage_a_report=True,
+        thread_id="t.s.b",
+    )
+    with pytest.raises(LawBlockedError):
+        require_stage(
+            current_stage="A",
+            target_stage="B",
+            template_kind="nlcd_2021",
+            firm_unshaded_x_ok=True,
+            thread_id="t.s.b.noa",
+        )
     with pytest.raises(LawBlockedError):
         require_stage(current_stage="0", target_stage="C", thread_id="t.s.skip")
     with pytest.raises(LawBlockedError):
