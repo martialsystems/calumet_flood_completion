@@ -7,7 +7,7 @@ from typing import Any
 
 from calumetforge.graphs._common import binary_graph
 
-_ORDER = ("0", "A", "B", "C")
+_ORDER = ("0", "A", "B", "C", "D")
 
 
 def _rank(stage: Any) -> int:
@@ -40,6 +40,8 @@ def _evaluate(state: dict[str, Any]) -> dict[str, Any]:
             v.append("stage_c_without_a")
         if not bool(state.get("stage_b_report")):
             v.append("stage_c_without_b")
+    if tr >= _rank("D") and not bool(state.get("probabilities_calibrated")):
+        v.append("sample_p_before_isotonic")
     if bool(state.get("sample_p")) and not bool(state.get("probabilities_calibrated")):
         v.append("sample_p_before_isotonic")
     return {"violations": v, "events": [{"node": "evaluate", "ok": not v}]}

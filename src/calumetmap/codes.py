@@ -22,6 +22,12 @@ ZONE_CLASS_NAME = {
 }
 ZONE_CLASS_CODE = {name: code for code, name in ZONE_CLASS_NAME.items()}
 
+D1_ZONE_CLASS = "unshaded_x"
+
+
+def d1_eligible(zone_class: str) -> bool:
+    return zone_class == D1_ZONE_CLASS
+
 _SFHA_ZONES = frozenset({"A", "AE", "AH", "AO", "AR", "A99", "V", "VE"})
 _UNMAPPED_ZONES = frozenset({"", "OPEN WATER", "AREA NOT INCLUDED"})
 

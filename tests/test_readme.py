@@ -18,6 +18,9 @@ def test_readme_opens_with_the_question() -> None:
     assert "Stage A" in text
     assert "Stage B" in text
     assert "Stage C" in text
+    assert "Stage D" in text
+    assert "0.274" in text
+    assert "0.220" in text
     assert "1903.21" in text
     assert "04040001" in text
     assert "Monument Circle" not in text

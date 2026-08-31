@@ -2,7 +2,9 @@
 
 Which 30 m cells in Little Calumet-Galien (HUC-8 04040001) look like the current FEMA SFHA given terrain and distance-to-water?
 
-Stage 0 pins that HUC and a 30 m EPSG:5070 template. Live WBD area is 1903.21 km² (states IL,IN,MI). Stage A clips NLCD 2021 impervious to this HUC and extracts FEMA NFHL layer 28 (`where=1=1`) onto that grid as `sfha` plus the full `zone_class` codebook. Unshaded X is Zone X. Stage B builds slope (floor 0.001 rad), D8 HAND, and Euclidean distances on that same template from 3DEP and NHD. HAND follows D8 to the drained stream cell. `P(sfha | hydro)` is the later map-completion score, not a 1-percent annual-chance product. Train is Stage C. Upper White `05120201` stays in its own tree. OFR 2008-1322 does not cover this HUC.
+Locked Stage C (`3a5dcfd`): the HUC-10 model beats HAND (PR-AUC 0.274 vs 0.220) and prevalence (0.080). That is a modest PR-AUC on lake-plain / industrial Calumet, not a copy of Upper White 0.36. Raw mean P is 0.343 (Brier 0.172); pooled isotonic calibrated P is 0.080 (Brier 0.064). Overlays use `p_sfha_calibrated.tif` only. `p_sfha.tif` may stay on disk.
+
+Stage 0 pins HUC 04040001 and a 30 m EPSG:5070 template. Live WBD area is 1903.21 km² (states IL,IN,MI). Stage A is NLCD 2021 plus NFHL layer 28. Stage B is D8 HAND on this template. `P(sfha | hydro)` is map-completion, not a 1-percent annual-chance product. Upper White `05120201` stays in its own tree. OFR 2008-1322 does not cover this HUC.
 
 Research index: https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3
 
@@ -22,7 +24,11 @@ Live NLCD 2021 template (refuses the 32x32 fixture). NFHL `S_FLD_HAZ_AR` on laye
 
 ## Stage C
 
-New train on the Stage B bands. Label is the SFHA band (floodway is already in `sfha==1`). Leave-one-HUC-10-out with a 1-pixel halo. PR-AUC vs prevalence and vs negated HAND. HistGradientBoosting on this HUC, not the Upper White XGB booster. Isotonic writes `p_sfha_calibrated.tif` and keeps `p_sfha.tif` (pooled OOF map if nested HUC-10 isotonic moves PR-AUC more than 0.02). HAND nodata stays nodata. Sampling P before that calibrated raster is refused. FIM-or-stop waits on a wet mask or this calibrated P. Industrial points wait on calibrated P.
+New train on the Stage B bands. Beats HAND, modest PR-AUC (0.274 vs HAND 0.220, prevalence 0.080). Nested HUC-10 isotonic moved rank too far; the shipped map is pooled OOF isotonic. HAND nodata stays nodata.
+
+## Stage D
+
+TRI on-site facilities in this HUC (IL/IN/MI), scored on calibrated P in a 120 m window. Five headline rows: top D1 (unshaded X) sites by window p_max, then pounds, with p_mean on the same row. Indy plant names are refused. Raw `p_sfha.tif` is not the overlay. FIM-or-stop is a later compare tree.
 
 ```bash
 python3.12 -m venv .venv
@@ -34,6 +40,7 @@ PYTHONPATH=src:. python3 scripts/fetch_wbd.py data/raw
 PYTHONPATH=src:. python3 scripts/run_stage_a.py --huc data/raw/huc04040001.geojson --out logs/stage_a
 PYTHONPATH=src:. python3 scripts/run_stage_b.py --huc data/raw/huc04040001.geojson --out logs/stage_b
 PYTHONPATH=src:. python3 scripts/run_stage_c.py --huc data/raw/huc04040001.geojson --out logs/stage_c
+PYTHONPATH=src:. python3 scripts/run_stage_d.py --huc data/raw/huc04040001.geojson --out logs/stage_d
 ```
 
 Do not use stock `/usr/bin/python3 -m pytest`. Empty WBD features stop (`fetch_wbd.py` exit 2). Stage A and B stop if the template looks like the fixture grid.
@@ -43,7 +50,7 @@ Do not use stock `/usr/bin/python3 -m pytest`. Empty WBD features stop (`fetch_w
 | [METHODOLOGY.md](METHODOLOGY.md) | Locked contract |
 | [AGENTS.md](AGENTS.md) | Agent rules |
 | [CHECKLIST.md](CHECKLIST.md) | Operator list |
-| `src/calumetmap/` | HUC load, NLCD, NFHL, D8 HAND, HUC-10 CV, isotonic P |
+| `src/calumetmap/` | HUC, NLCD, NFHL, D8 HAND, HUC-10 CV, isotonic P, TRI overlay |
 | `calumetforge/` | GraphForge pin |
 
 MIT. Martial Systems LLC.

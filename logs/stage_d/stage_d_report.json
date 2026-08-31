@@ -1,0 +1,141 @@
+{
+  "stage": "D",
+  "state": "IN",
+  "huc8": "04040001",
+  "huc_name": "Little Calumet-Galien",
+  "unit": "pixel",
+  "p_definition": "P(sfha | hydro)",
+  "vector_crs": 4269,
+  "template_crs": 5070,
+  "template_res_m": 30.0,
+  "template_kind": "nlcd_2021",
+  "huc_states": "IL,IN,MI",
+  "huc_areasqkm": 1903.21,
+  "wbd_live_areasqkm": 1903.21,
+  "ofr_2008_covers_this_huc": false,
+  "indy_plants_copied": false,
+  "fim_started": false,
+  "claim_bans": [
+    "casualty_count",
+    "climate_attribution",
+    "tornado_count",
+    "population_at_risk",
+    "p_as_100yr",
+    "unmapped_risk",
+    "indy_plant_copy"
+  ],
+  "gate": "pass",
+  "template_fingerprint": {
+    "kind": "nlcd_2021",
+    "crs": 5070,
+    "width": 3298,
+    "height": 3008,
+    "transform": [
+      30.0,
+      0.0,
+      692250.0,
+      0.0,
+      -30.0,
+      2162790.0
+    ],
+    "transform_sha256": "81748d4137cb2e161f4e875699d62a5b594a4141b5b6dc73eacd2af136d7e808",
+    "raster_sha256": "0b0a0ce13c4ec43fbbfae394616b4845d9ac004846a0f1e50797cb5bf011f5f3"
+  },
+  "d1_header": "SFHA-like hydrology outside Zone A/AE",
+  "d1_zone_class": "unshaded_x",
+  "p_source": "p_sfha_calibrated.tif",
+  "p_source_raw_kept": "p_sfha.tif",
+  "expected_pounds_from_calibrated_p": true,
+  "expected_pounds_from_raw_p": false,
+  "headline_p": "p_max",
+  "headline_n": 5,
+  "headline_rule": "top_5_d1_by_p_max_then_pounds; p_mean on the same row",
+  "buffer_radius_cells": 4,
+  "buffer_m": 120.0,
+  "n_tris_huc_year": 73,
+  "tri": {
+    "n_1a_rows": 9781,
+    "n_1a_in_states": 9781,
+    "n_dropped_missing_xy": 0,
+    "n_dropped_other_state": 0,
+    "n_dioxin_rows_held_grams": 64,
+    "n_excluded_off_site": 3704,
+    "reporting_year": 2023,
+    "states": [
+      "IN",
+      "IL",
+      "MI"
+    ],
+    "n_dropped_out_of_huc": 2579,
+    "n_tris_huc_year": 73
+  },
+  "d1_n_unshaded_x": 70,
+  "n_not_d1": 3,
+  "not_d1_zone_class": {
+    "shaded_x": 1,
+    "other": 2
+  },
+  "d1_reading": "buffer-max is a 30 m edge of the 120 m window; buffer-mean is the site footprint",
+  "d1_headline_rows": [
+    {
+      "name": "HAMMOND GROUP INC- EXPANDERS 3100",
+      "on_site_release_lb": 0.228,
+      "p_max": 0.49433377385139465,
+      "p_mean": 0.21801580488681793,
+      "p_max_note": "neighboring_land_cell",
+      "p_max_zone_class": "unshaded_x",
+      "state": "IN",
+      "year": 2023
+    },
+    {
+      "name": "RESCO PRODUCTS INC",
+      "on_site_release_lb": 338.049,
+      "p_max": 0.4436201751232147,
+      "p_mean": 0.12110915035009384,
+      "p_max_note": "neighboring_land_cell",
+      "p_max_zone_class": "unshaded_x",
+      "state": "IN",
+      "year": 2023
+    },
+    {
+      "name": "REWORLD OIL LLC",
+      "on_site_release_lb": 0.0,
+      "p_max": 0.4143799841403961,
+      "p_mean": 0.16329696774482727,
+      "p_max_note": "adjacent_hydro_cell",
+      "p_max_zone_class": "unshaded_x",
+      "state": "IN",
+      "year": 2023
+    },
+    {
+      "name": "BEFESA ZINC US INC.",
+      "on_site_release_lb": 10487.0,
+      "p_max": 0.3037879168987274,
+      "p_mean": 0.05345994606614113,
+      "p_max_note": "neighboring_land_cell",
+      "p_max_zone_class": "unshaded_x",
+      "state": "IL",
+      "year": 2023
+    },
+    {
+      "name": "USS GARY WORKS",
+      "on_site_release_lb": 12906360.6,
+      "p_max": 0.28694307804107666,
+      "p_mean": 0.10509125888347626,
+      "p_max_note": "neighboring_land_cell",
+      "p_max_zone_class": "unshaded_x",
+      "state": "IN",
+      "year": 2023
+    }
+  ],
+  "tri_states": [
+    "IN",
+    "IL",
+    "MI"
+  ],
+  "tri_states_present": [
+    "IL",
+    "IN"
+  ],
+  "probabilities_calibrated": true
+}

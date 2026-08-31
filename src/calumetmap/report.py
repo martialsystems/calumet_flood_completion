@@ -82,6 +82,7 @@ def write_report(out_dir: Path, report: dict[str, Any]) -> Path:
         "a": "stage_a_report.json",
         "b": "stage_b_report.json",
         "c": "stage_c_report.json",
+        "d": "stage_d_report.json",
     }
     name = names.get(stage, "stage0_report.json")
     path = out_dir / name
@@ -240,6 +241,51 @@ def build_stage_c_report(
     if extra:
         report.update(extra)
     require_clean(json.dumps(report, default=str), source="stage_c_report")
+    hits = scan_obj(report)
+    if hits:
+        raise GateError("report claim scan {0}".format(hits))
+    return report
+
+
+def build_stage_d_report(
+    huc: HucLayer,
+    template: TemplateGrid,
+    *,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if huc.huc8 != HUC8:
+        raise GateError("HUC {0!r} != {1!r}".format(huc.huc8, HUC8))
+    report: dict[str, Any] = {
+        "stage": "D",
+        "state": STATE_CODE,
+        "huc8": HUC8,
+        "huc_name": huc.name or HUC_NAME,
+        "unit": "pixel",
+        "p_definition": P_DEFINITION,
+        "vector_crs": huc.crs,
+        "template_crs": template.crs,
+        "template_res_m": TEMPLATE_RES_M,
+        "template_kind": template.kind,
+        "huc_states": huc.states,
+        "huc_areasqkm": huc.areasqkm,
+        "wbd_live_areasqkm": WBD_LIVE_AREASQKM,
+        "ofr_2008_covers_this_huc": False,
+        "indy_plants_copied": False,
+        "fim_started": False,
+        "claim_bans": [
+            "casualty_count",
+            "climate_attribution",
+            "tornado_count",
+            "population_at_risk",
+            "p_as_100yr",
+            "unmapped_risk",
+            "indy_plant_copy",
+        ],
+        "gate": "pass",
+    }
+    if extra:
+        report.update(extra)
+    require_clean(json.dumps(report, default=str), source="stage_d_report")
     hits = scan_obj(report)
     if hits:
         raise GateError("report claim scan {0}".format(hits))

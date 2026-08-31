@@ -24,7 +24,7 @@ FIXTURE_NORTH = 2_170_000.0
 FIXTURE_ROWS = 32
 FIXTURE_COLS = 32
 
-USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageC)"
+USER_AGENT = "MartialSystemsResearch/calumet_flood_completion (stageD)"
 WBD_LAYER_URL = "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4"
 WBD_MAX_ALLOWABLE_OFFSET_DEG = 0.0001
 WBD_GEOMETRY_PRECISION = 6
@@ -142,3 +142,10 @@ P_SFHA_NODATA = -1.0
 P_SFHA_CALIBRATED_NAME = "p_sfha_calibrated.tif"
 P_SFHA_RAW_NAME = "p_sfha.tif"
 CAL_PR_AUC_MAX_SHIFT = 0.02
+
+TRI_YEAR_CANDIDATES = (2023, 2022, 2021)
+TRI_STATES = ("IN", "IL", "MI")
+TRI_ENVIROFACTS = "https://data.epa.gov/efservice/MV_TRI_BASIC_DOWNLOAD"
+D_BUFFER_RADIUS_CELLS = 4
+D_HEADLINE_N = 5
+D1_HEADER = "SFHA-like hydrology outside Zone A/AE"

@@ -42,10 +42,18 @@ Scores: PR-AUC vs SFHA prevalence (must beat) and vs negated HAND (logged). Isot
 
 TRI overlay optional and local to 04040001. OFR 2008-1322 is an Upper White reach product: if no Calumet high-water mask fetches, log miss.
 
-Two figures max after C.
+Locked C (`3a5dcfd`): PR-AUC 0.274 vs HAND 0.220 vs prevalence 0.080.
+
+## What Stage D is
+
+TRI Form R on-site facilities whose coordinates fall in 04040001. States IL, IN, and MI are queried; Indiana must appear in the live clip. Dioxin rows are held in grams and add 0 lb. Off-site release totals are logged and not added to on-site pounds.
+
+Each facility is scored on `p_sfha_calibrated.tif` in a 4-cell (120 m) window. p_max is the window maximum. p_mean is the window mean. D1 is unshaded X with a scored window. Headline: five D1 rows, sorted by p_max then on-site pounds. p_mean sits on the same row. The five Indy plant names are refused.
+
+Raw `p_sfha.tif` stays on disk and is not the overlay. OFR 2008 is not used.
 
 ## Claims
 
-Allowed: HUC 04040001; 30 m template; NFHL `zone_class` on this HUC; D8 HAND and distances on this template; `P(sfha | hydro)` as map-completion after isotonic.
+Allowed: HUC 04040001; 30 m template; NFHL `zone_class`; D8 HAND; modest PR-AUC that beats HAND; `P(sfha | hydro)` after isotonic; five local TRI rows with p_max and p_mean.
 
 Scanner ids in `calumetmap.claims` stay in force: casualty_count, climate_attribution, tornado_count, population_at_risk, p_as_100yr, unmapped_risk, indy_plant_copy. OFR 2008-1322 is an Upper White reach product.
