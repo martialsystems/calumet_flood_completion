@@ -184,4 +184,6 @@ def test_stage_d_overlay_calibrated_only(tmp_path: Path) -> None:
         assert "THURSDAY" not in row["name"].upper()
     assert (tmp_path / "out" / "d1_headline.csv").is_file()
     assert report["expected_pounds_from_raw_p"] is False
+    assert "expected_pounds_from_calibrated_p" not in report
+    assert "not_d1_rows" in report
     assert "IL" in report["tri_states_present"] or "IN" in report["tri_states_present"]

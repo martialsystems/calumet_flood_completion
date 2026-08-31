@@ -48,9 +48,9 @@ Locked C (`3a5dcfd`): PR-AUC 0.274 vs HAND 0.220 vs prevalence 0.080.
 
 TRI Form R on-site facilities whose coordinates fall in 04040001. States IL, IN, and MI are queried; Indiana must appear in the live clip. Dioxin rows are held in grams and add 0 lb. Off-site release totals are logged and not added to on-site pounds.
 
-Each facility is scored on `p_sfha_calibrated.tif` in a 4-cell (120 m) window. p_max is the window maximum. p_mean is the window mean. D1 is unshaded X with a scored window. Headline: five D1 rows, sorted by p_max then on-site pounds. p_mean sits on the same row. The five Indy plant names are refused.
+Each facility is scored on `p_sfha_calibrated.tif` in a 4-cell (120 m) window. p_max is the window maximum. p_mean is the window mean. D1 is unshaded X with a scored window. Locked D (`dc1689e`): 70 of 73 are D1. The three not-D1 are already mapped (HARSCO MINERALS - NBC shaded X; SHERWIN-WILLIAMS CO other, unscored; FORD MOTOR CO CHICAGO ASSEMBLY other). Headline: five D1 rows by p_max, then pounds, with p_mean on the same row. No 0.75 cutoff. Highest p_max is 0.49. Expected pounds is not a lead number. Indy plant names are refused.
 
-Raw `p_sfha.tif` stays on disk and is not the overlay. OFR 2008 is not used.
+Raw `p_sfha.tif` stays on disk and is not the overlay. OFR 2008 is not used. Pages is not restamped with these five names.
 
 ## Claims
 

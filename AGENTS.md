@@ -2,7 +2,7 @@
 
 Public GitHub. MIT. Question: Which 30 m cells in Little Calumet-Galien (HUC-8 04040001) look like the current FEMA SFHA given terrain and distance-to-water?
 
-Stage D in this commit: TRI points on calibrated P, five headline rows by window p_max with p_mean on the same row. Do not reopen Stage B. Do not copy Upper White boosters, occupancy, or the five Indy plant names. Overlay `p_sfha_calibrated.tif` only. Do not start `calumet_fim_or_stop` here. Do not expand to 05120201. OFR 2008-1322 is not a Calumet mask. Fixture 32x32 is refused.
+Stage D locked at `dc1689e`. Copy only: modest lake-plain map-completion; 70/73 unshaded X; three already-mapped; five Zone X rows ranked by p_max, none clear 0.50. Do not reopen B. Do not publish expected pounds as a lead number. Do not restamp `indiana_wx_pages` with these five names. Do not start `calumet_fim_or_stop` here. Overlay calibrated P only. Indy plant names stay off this repo.
 
 `calumetforge/` is the GraphForge pin: HUC lock, stage order, claim bans.
 

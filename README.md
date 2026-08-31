@@ -2,7 +2,7 @@
 
 Which 30 m cells in Little Calumet-Galien (HUC-8 04040001) look like the current FEMA SFHA given terrain and distance-to-water?
 
-Locked Stage C (`3a5dcfd`): the HUC-10 model beats HAND (PR-AUC 0.274 vs 0.220) and prevalence (0.080). That is a modest PR-AUC on lake-plain / industrial Calumet, not a copy of Upper White 0.36. Raw mean P is 0.343 (Brier 0.172); pooled isotonic calibrated P is 0.080 (Brier 0.064). Overlays use `p_sfha_calibrated.tif` only. `p_sfha.tif` may stay on disk.
+Locked Stage D (`dc1689e`). Modest map-completion on a lake-plain HUC. C beats HAND (PR-AUC 0.274 vs 0.220, prevalence 0.080). Five Zone X sites have a higher neighbor cell than the lot mean; none clear 0.50 on the max. Denominator: 70 of 73 TRI points are unshaded X. The other three are already mapped: HARSCO MINERALS - NBC (shaded X), SHERWIN-WILLIAMS CO (other), FORD MOTOR CO CHICAGO ASSEMBLY (other). Rank is by p_max, so USS Gary (12.9M lb, mean 0.105) is not the headline. Calibrated P only. Indy plant names stay off this repo.
 
 Stage 0 pins HUC 04040001 and a 30 m EPSG:5070 template. Live WBD area is 1903.21 km² (states IL,IN,MI). Stage A is NLCD 2021 plus NFHL layer 28. Stage B is D8 HAND on this template. `P(sfha | hydro)` is map-completion, not a 1-percent annual-chance product. Upper White `05120201` stays in its own tree. OFR 2008-1322 does not cover this HUC.
 
@@ -28,7 +28,7 @@ New train on the Stage B bands. Beats HAND, modest PR-AUC (0.274 vs HAND 0.220, 
 
 ## Stage D
 
-TRI on-site facilities in this HUC (IL/IN/MI), scored on calibrated P in a 120 m window. Five headline rows: top D1 (unshaded X) sites by window p_max, then pounds, with p_mean on the same row. Indy plant names are refused. Raw `p_sfha.tif` is not the overlay. FIM-or-stop is a later compare tree.
+Edge screen on calibrated P, no 0.75 cutoff. Highest window-max is 0.49. Site-means are 0.05 to 0.22. Nobody has a wet footprint on this score. Five Zone X rows, ranked by p_max, each with p_mean. Do not publish expected pounds as a lead number. Pages is not restamped with these names. FIM-or-stop waits.
 
 ```bash
 python3.12 -m venv .venv

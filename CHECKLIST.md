@@ -10,6 +10,6 @@
 8. OFR 2008 is not a Calumet mask.
 9. GraphForge `calumetforge/` green. Stage A/B/C require `nlcd_2021`. Stage B requires Stage A. Sampling P requires isotonic.
 10. Index Maps row for Calumet. Upper White gist title stays Upper White.
-11. Stage D: TRI on calibrated P. Five rows by p_max with p_mean. No Indy names. Do not reopen B.
-12. FIM-or-stop is a later compare tree. Overlay never uses raw `p_sfha.tif`.
-13. Research index: https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3
+11. Stage D locked `dc1689e`: 70/73 unshaded X; three already-mapped named in the report; five rows by p_max, none clear 0.50.
+12. Do not lead with expected pounds. Do not restamp Pages with the five names. FIM-or-stop waits.
+13. Index gist: Calumet C+D, still not a FIRM. https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3

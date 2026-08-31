@@ -45,7 +45,6 @@
   "d1_zone_class": "unshaded_x",
   "p_source": "p_sfha_calibrated.tif",
   "p_source_raw_kept": "p_sfha.tif",
-  "expected_pounds_from_calibrated_p": true,
   "expected_pounds_from_raw_p": false,
   "headline_p": "p_max",
   "headline_n": 5,
@@ -137,5 +136,31 @@
     "IL",
     "IN"
   ],
-  "probabilities_calibrated": true
+  "probabilities_calibrated": true,
+  "not_d1_rows": [
+    {
+      "name": "HARSCO MINERALS - NBC",
+      "zone_class": "shaded_x",
+      "state": "IN",
+      "p_max": 0.21385473012924194,
+      "p_mean": 0.12060186266899109,
+      "on_site_release_lb": 0.628
+    },
+    {
+      "name": "SHERWIN-WILLIAMS CO",
+      "zone_class": "other",
+      "state": "IL",
+      "p_max": null,
+      "p_mean": null,
+      "on_site_release_lb": 93.1
+    },
+    {
+      "name": "FORD MOTOR CO CHICAGO ASSEMBLY",
+      "zone_class": "other",
+      "state": "IL",
+      "p_max": 0.12325026839971542,
+      "p_mean": 0.05522777512669563,
+      "on_site_release_lb": 221871.5
+    }
+  ]
 }

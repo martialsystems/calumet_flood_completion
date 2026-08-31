@@ -386,7 +386,6 @@ def run_stage_d(
         "d1_zone_class": "unshaded_x",
         "p_source": P_SFHA_CALIBRATED_NAME,
         "p_source_raw_kept": P_SFHA_RAW_NAME,
-        "expected_pounds_from_calibrated_p": True,
         "expected_pounds_from_raw_p": False,
         "headline_p": "p_max",
         "headline_n": D_HEADLINE_N,
@@ -400,6 +399,17 @@ def run_stage_d(
         "d1_n_unshaded_x": len(d1_rows),
         "n_not_d1": len(not_d1),
         "not_d1_zone_class": not_d1_zones,
+        "not_d1_rows": [
+            {
+                "name": r["name"],
+                "zone_class": r["zone_class"],
+                "state": r["state"],
+                "p_max": r["p_max"],
+                "p_mean": r["p_mean"],
+                "on_site_release_lb": r["on_site_release_lb"],
+            }
+            for r in not_d1
+        ],
         "d1_reading": (
             "buffer-max is a 30 m edge of the 120 m window; "
             "buffer-mean is the site footprint"
