@@ -23,7 +23,10 @@ def test_readme_opens_with_the_question() -> None:
     assert "0.220" in text
     assert "70 of 73" in text
     assert "0.50" in text
-    assert "zone-class hole" in text
+    assert "HARSCO MINERALS - NBC is mapped moderate hazard" in text
+    assert "SHERWIN-WILLIAMS CO is a zone hole with no window score" in text
+    assert "FORD MOTOR CO CHICAGO ASSEMBLY is a zone hole with a scored window" in text
+    assert "p_max 0.123" in text
     assert "expected pounds" in text.lower()
     assert "1903.21" in text
     assert "04040001" in text

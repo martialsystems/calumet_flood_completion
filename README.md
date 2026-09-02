@@ -2,7 +2,7 @@
 
 Which 30 m cells in Little Calumet-Galien (HUC-8 04040001) look like the current FEMA SFHA given terrain and distance-to-water?
 
-Locked Stage D (`dc1689e`). Modest map-completion on a lake-plain HUC. C beats HAND (PR-AUC 0.274 vs 0.220, prevalence 0.080). Five Zone X sites have a higher neighbor cell than the lot mean; none clear 0.50 on the max. Denominator: 70 of 73 TRI points are unshaded X. The other three are already mapped, not D1: HARSCO MINERALS - NBC (shaded X), SHERWIN-WILLIAMS CO (other, unscored), FORD MOTOR CO CHICAGO ASSEMBLY (other, scored). Other is a zone-class hole. Rank is by p_max, so USS Gary (12.9M lb, mean 0.105) is not the headline. Calibrated P only. Indy plant names stay off this repo.
+Locked Stage D (`dc1689e`). Modest map-completion on a lake-plain HUC. C beats HAND (PR-AUC 0.274 vs 0.220, prevalence 0.080). Five Zone X sites have a higher neighbor cell than the lot mean; none clear 0.50 on the max. Denominator: 70 of 73 TRI points are unshaded X. HARSCO MINERALS - NBC is mapped moderate hazard (shaded X). SHERWIN-WILLIAMS CO is a zone hole with no window score. FORD MOTOR CO CHICAGO ASSEMBLY is a zone hole with a scored window (p_max 0.123) and still not D1. Rank is by p_max, so USS Gary (12.9M lb, mean 0.105) is not the headline. Calibrated P only. Indy plant names stay off this repo.
 
 Stage 0 pins HUC 04040001 and a 30 m EPSG:5070 template. Live WBD area is 1903.21 km² (states IL,IN,MI). Stage A is NLCD 2021 plus NFHL layer 28. Stage B is D8 HAND on this template. `P(sfha | hydro)` is map-completion, not a 1-percent annual-chance product. Upper White `05120201` stays in its own tree. OFR 2008-1322 does not cover this HUC.
 
