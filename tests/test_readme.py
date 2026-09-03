@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from calumetmap.claims import scan_text
-from calumetmap.config import HUC8, INDEX_GIST, INDY_PLANT_NAMES, PARENT_HUC8, QUESTION
+from calumetmap.config import HUC8, INDY_PLANT_NAMES, PARENT_HUC8, QUESTION
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -31,7 +31,11 @@ def test_readme_opens_with_the_question() -> None:
     assert "1903.21" in text
     assert "04040001" in text
     assert "Monument Circle" not in text
-    assert INDEX_GIST.split("/")[-1] in text
+    assert "Open_the_research_console-2e7d32" in text
+    assert "martialsystems.github.io/indiana_wx_pages" in text
+    assert "Upper White floodplain completion" in text
+    assert "indiana__flood__completion" not in text
+    assert "Parent: [![" not in text
     assert ".github/blob/main/RESEARCH.md" not in text
     assert scan_text(text) == []
     assert "\u2014" not in text
