@@ -6,9 +6,9 @@ Locked Stage D (`dc1689e`). Modest map-completion on a lake-plain HUC. C beats H
 
 Stage 0 pins HUC 04040001 and a 30 m EPSG:5070 template. Live WBD area is 1903.21 km² (states IL,IN,MI). Stage A is NLCD 2021 plus NFHL layer 28. Stage B is D8 HAND on this template. `P(sfha | hydro)` is map-completion, not a 1-percent annual-chance product. Upper White `05120201` stays in its own tree. OFR 2008-1322 does not cover this HUC.
 
-Research index: https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3
+[![Open the research console](https://img.shields.io/badge/Open_the_research_console-2e7d32?style=for-the-badge)](https://martialsystems.github.io/indiana_wx_pages/)
 
-Parent (Upper White, frozen HUC): https://github.com/martialsystems/indiana_flood_completion
+Parent (Upper White, frozen HUC): [![indiana_flood_completion](https://img.shields.io/badge/indiana__flood__completion-2e7d32?style=for-the-badge)](https://github.com/martialsystems/indiana_flood_completion)
 
 ## Stage 0
 
