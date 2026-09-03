@@ -31,8 +31,9 @@ def test_readme_opens_with_the_question() -> None:
     assert "1903.21" in text
     assert "04040001" in text
     assert "Monument Circle" not in text
-    assert "Open_the_research_console-2e7d32" in text
-    assert "martialsystems.github.io/indiana_wx_pages" in text
+    assert "Research index: https://gist.github.com/martialsystems/66b896b0a4a0b8cba2b478aef64312f3" in text
+    assert "Open_the_research_console" not in text
+    assert "66b896b0a4a0b8cba2b478aef64312f3" in text
     assert "Upper White floodplain completion" in text
     assert "indiana__flood__completion" not in text
     assert "Parent: [![" not in text
