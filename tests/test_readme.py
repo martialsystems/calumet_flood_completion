@@ -35,6 +35,11 @@ def test_readme_opens_with_the_question() -> None:
     assert "Open_the_research_console" not in text
     assert "66b896b0a4a0b8cba2b478aef64312f3" in text
     assert "Upper White floodplain completion" in text
+    assert "logs/stage_d/pr_auc.png" in text
+    assert "logs/stage_d/p_max_screen.png" in text
+    assert "![Figure 1" in text
+    assert "![Figure 2" in text
+    assert "![Figure 3" not in text
     assert "indiana__flood__completion" not in text
     assert "Parent: [![" not in text
     assert ".github/blob/main/RESEARCH.md" not in text
